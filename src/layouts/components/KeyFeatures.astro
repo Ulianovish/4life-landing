@@ -7,13 +7,6 @@ const { title, description, feature_list } = key_features;
 ---
 
 <section class="section key-feature relative">
-  <Image
-    class="absolute left-0 top-0 -z-[1] -translate-y-1/2"
-    src="/images/feature-shape.png"
-    height={126}
-    width={63}
-    alt=""
-  />
   <div class="container">
     <div class="row justify-between text-center lg:text-start">
       <div class="lg:col-5">
@@ -23,6 +16,37 @@ const { title, description, feature_list } = key_features;
         <p set:html={markdownify(description)} />
       </div>
     </div>
-    <HomapageFeature feature_list={feature_list} client:load />
+    <div class="key-feature-grid mt-20 grid mr-4 ml-8 grid-cols-1 gap-7 md:grid-cols-3 xl:grid-cols-4">
+      {feature_list.map((item: any) => (
+        <div
+        class="relative flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg"
+        >
+          
+          <span class="absolute top-[-48px] left-[-36px] w-24 h-24 text-blue-500">
+            <img 
+              src={`/images/icons/${item.icon}.svg`} 
+              alt={item.title} 
+              class="w-full h-full"
+            />
+          </span>
+
+          <!-- Contenido del beneficio -->
+          <div>
+            <h3 class="h4 text-xl ml-5 lg:text-2xl">{item.title}</h3>
+            <p>{item.content}</p>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<!-- <div class="container">
+  <div class="row justify-center text-center">
+    <div class="lg:col-12">
+      <h2 class="text-center" set:html={markdownify(title)} />
+    </div>
+  </div>
+  <HomapageFeature feature_list={feature_list} client:load />
+</div> -->
+

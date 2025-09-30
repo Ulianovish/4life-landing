@@ -3,8 +3,9 @@ import PageHeader from "@/components/PageHeader.astro";
 import Shape from "@/components/Shape.astro";
 import Base from "@/layouts/Base.astro";
 import Faq from "@/layouts/function-components/Faq.jsx";
-import PricingCard from "@/layouts/function-components/PricingCard.jsx";
 import { getEntryBySlug } from "astro:content";
+import { BsPinAngleFill } from "react-icons/bs";
+import { Image } from "astro:assets";
 
 const pricing = await getEntryBySlug("pricing", "index");
 const page_data = {
@@ -13,29 +14,61 @@ const page_data = {
 };
 ---
 
-<Base
-  title={pricing.data.title}
-  meta_title={pricing.data.meta_title}
-  description={pricing.data.description}
-  image={pricing.data.image}
->
-  <Shape />
-  <section class="page-hero pb-14 pt-16">
-    <div class="container">
-      <PageHeader page_data={page_data} />
+<section class="page-hero pb-14 pt-16">
+  <div class="container">
+    <PageHeader page_data={page_data} />
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section mt-12 pt-0">
+  <div class="container">
+    <div class="row lg:px-10">
+      {
+        pricing.data.pricing_card.map((item: any) => (
+          <div class="mt-8 px-3 md:col-6 lg:col-4 lg:mt-0">
+            <div
+              class={`rounded-xl bg-white px-8 py-10 shadow-lg ${item.featured ? "-mt-16 border border-primary" : ""}`}
+            >
+              <h2 class="h3">{item.title}</h2>
+
+              <div class="product-image-container relative mx-auto my-4 h-[200px] w-[240px] overflow-hidden border-l-2 border-r-2 border-gray-300 transition-all duration-500 ease-in-out hover:h-[300px]">
+                <Image
+                  class="absolute top-[66%] left-1/2 w-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out hover:top-1/2"
+                  src={`/images/${item.image}.png`}
+                  alt={item.title}
+                  height={63}
+                  width={63}
+                />
+              </div>
+
+              <div class="my-6 py-6">
+                <ul class="mt-6">
+                  {item.services.list.map((service: any) => (
+                    <li class="mb-3 text-sm">
+                      <span class="mr-2">
+                        <BsPinAngleFill
+                          className={`mr-1 inline h-[14px] w-[14px] text-primary`}
+                        />
+                      </span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="text-center">
+                <a
+                  class={`btn-blue block h-[48px] w-full rounded-[50px]`}
+                  href={item.buttons.buy_now.link}
+                >
+                  {item.buttons.buy_now.label}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
-  </section>
-  <!-- pricing -->
-  <section class="section mt-12 pt-0">
-    <div class="container">
-      <div class="row lg:px-10">
-        {
-          pricing.data.pricing_card.map((item: any, i: number) => (
-            <PricingCard item={item} client:load />
-          ))
-        }
-      </div>
-    </div>
-  </section>
-  <Faq client:load data={pricing.data} />
-</Base>
+  </div>
+</section>

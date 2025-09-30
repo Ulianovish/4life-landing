@@ -335,6 +335,10 @@ select:invalid {
 
   &-author-avatar {
     @apply mx-auto -mt-12 h-[90px] w-[90px] -translate-y-5 rounded-full p-0.5;
+    
+    img {
+      @apply h-full w-full rounded-full object-cover;
+    }
   }
 }
 .review-rating {
