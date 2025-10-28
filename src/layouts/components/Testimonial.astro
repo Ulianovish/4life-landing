@@ -1,9 +1,38 @@
 ---
 import TestimonialSlider from "@/layouts/function-components/TestimonialSlider";
+import config from "@/config/config.json";
 const { testimonial } = Astro.props;
+
+// Generate individual review structured data for each testimonial
+const reviewsStructuredData = testimonial.testimonial_list.map((item: any) => ({
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": item.author
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": item.rating === "five" ? "5" : item.rating === "four" ? "4" : "5",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "reviewBody": item.content,
+  "datePublished": new Date().toISOString().split('T')[0]
+}));
 ---
 
 <section class="reviews">
+  <!-- Structured Data - Reviews -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Transfer Factor Plus",
+    "brand": {
+      "@type": "Brand",
+      "name": "4Life"
+    },
+    "review": reviewsStructuredData
+  })} />
   <div class="container">
     <div class="row justify-between">
       <div class="lg:col-6">

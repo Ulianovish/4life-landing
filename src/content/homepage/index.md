@@ -3,9 +3,10 @@ banner:
   title: "Únete A Miles De Personas Que Fortalecen Su Inmunidad"
   content: "Descubre el poder de un sistema inmunológico fuerte y disfruta de una vida más saludable."
   image: /images/TransferFactor-removebg-preview.png
+  image_alt: "Transfer Factor Plus de 4Life - Suplemento para fortalecer el sistema inmunológico"
   button:
     label: Comprar Ahora
-    link: "https://4l.shop/OIHWU"
+    link: "https://colombia.4life.com/MildredBriyitBarrero/shop/all"
     enable: true
 
 ##key features

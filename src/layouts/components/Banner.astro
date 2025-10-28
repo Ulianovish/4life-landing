@@ -3,7 +3,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import Animation from "./Animation.astro";
 const { banner } = Astro.props;
-const { title, button, image, content } = banner;
+const { title, button, image, content, image_alt } = banner;
 ---
 
 <section
@@ -15,7 +15,7 @@ const { title, button, image, content } = banner;
       <div class="lg:col-6">
         <h1 class="banner-title" set:html={markdownify(title)} />
 
-        <h4 class="mt-6 font-normal" set:html={markdownify(content)} />
+        <p class="mt-6 text-lg font-normal" set:html={markdownify(content)} />
 
         {
           button.enable && (
@@ -33,7 +33,7 @@ const { title, button, image, content } = banner;
         >
           <Image
             class="lg:w-4/5 object-contain"
-            alt="banner"
+            alt={image_alt || "Transfer Factor Plus - Suplemento inmunológico 4Life"}
             src={image}
             width={496}
             height={496}
@@ -45,7 +45,7 @@ const { title, button, image, content } = banner;
     <div class="flex justify-center mt-8 lg:mt-0">
       <Image
         class="w-[146px] lg:w-[146px] object-contain"
-        alt="LOGO-INVIMA"
+        alt="Certificado INVIMA - Registro Sanitario Colombiano para Transfer Factor Plus 4Life"
         src="/images/LOGO-INVIMA.webp"
         width={200}
         height={200}

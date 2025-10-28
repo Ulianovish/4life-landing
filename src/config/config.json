@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Pinwheel Astro",
+    "title": "Transfer Factor Plus 4Life - Fortalece tu Sistema Inmunológico",
     "base_url": "https://pinwheel-astro.vercel.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -8,7 +8,7 @@
     "logo": "/images/logo.png",
     "logo_width": "147",
     "logo_height": "31",
-    "logo_text": "Pinwheel"
+    "logo_text": "4Life Transfer Factor"
   },
 
   "settings": {
@@ -33,17 +33,17 @@
   },
 
   "params": {
-    "footer_description": "Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo tellus, sed condimentum volutpat.",
-    "email": "info@andromeda.io",
-    "location": "2118 Thornridge Cir. Syracuse, Connecticut 35624",
-    "phone": "+704-555-0127",
+    "footer_description": "Distribuidor oficial de 4Life Transfer Factor. Fortalecemos tu sistema inmunológico con productos respaldados científicamente para mejorar tu salud y bienestar.",
+    "email": "info@transferfactor4life.com",
+    "location": "Servicio a toda América Latina",
+    "phone": "+1-888-454-3374",
     "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2025 4Life Transfer Factor. Todos los derechos reservados. | [Política de Privacidad](#) | [Términos de Servicio](#)"
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
+    "meta_author": "4Life Transfer Factor",
     "meta_image": "/images/og-image.png",
-    "meta_description": "pinwheel astro"
+    "meta_description": "Fortalece tu sistema inmunológico con Transfer Factor Plus de 4Life. Suplemento respaldado científicamente para mejorar tus defensas naturales, aumentar tu vitalidad y apoyar tu salud durante tratamientos médicos. Miles de personas confían en nosotros."
   }
 }

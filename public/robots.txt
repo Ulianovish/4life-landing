@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Disallow: /api/*
+
+Sitemap: https://pinwheel-astro.vercel.app/sitemap-index.xml

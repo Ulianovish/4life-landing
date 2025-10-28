@@ -1,0 +1,134 @@
+{
+  "distributor_code": "MildredBriyitBarrero",
+  "regions": {
+    "BO": {
+      "name": "Bolivia",
+      "domain": "https://bolivia.4life.com",
+      "language": "es",
+      "locale": "es-BO",
+      "currency": "BOB"
+    },
+    "CL": {
+      "name": "Chile",
+      "domain": "https://chile.4life.com",
+      "language": "es",
+      "locale": "es-CL",
+      "currency": "CLP"
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "domain": "https://costarica.4life.com",
+      "language": "es",
+      "locale": "es-CR",
+      "currency": "CRC"
+    },
+    "MX": {
+      "name": "México",
+      "domain": "https://mexico.4life.com",
+      "language": "es",
+      "locale": "es-MX",
+      "currency": "MXN"
+    },
+    "BR": {
+      "name": "Brasil",
+      "domain": "https://brazil.4life.com",
+      "language": "pt",
+      "locale": "pt-BR",
+      "currency": "BRL"
+    },
+    "CO": {
+      "name": "Colombia",
+      "domain": "https://colombia.4life.com",
+      "language": "es",
+      "locale": "es-CO",
+      "currency": "COP"
+    },
+    "EC": {
+      "name": "Ecuador",
+      "domain": "https://ecuador.4life.com",
+      "language": "es",
+      "locale": "es-EC",
+      "currency": "USD"
+    },
+    "PE": {
+      "name": "Perú",
+      "domain": "https://peru.4life.com",
+      "language": "es",
+      "locale": "es-PE",
+      "currency": "PEN"
+    }
+  },
+  "products": {
+    "transfer-factor-classic": {
+      "name": "4Life Transfer Factor",
+      "name_es": "4Life Transfer Factor",
+      "availability": "all",
+      "regional_config": {
+        "default": {
+          "id": "95",
+          "slug": "transfer-factor-tri-factor"
+        }
+      }
+    },
+    "transfer-factor-plus": {
+      "name": "4Life Transfer Factor Plus",
+      "name_es": "4Life Transfer Factor Plus",
+      "availability": "all",
+      "regional_config": {
+        "default": {
+          "id": "89",
+          "slug": "transfer-factor-plus-tri-factor"
+        },
+        "CL": {
+          "id": "1117",
+          "slug": "4life-plus"
+        }
+      }
+    },
+    "transfer-factor-boost": {
+      "name": "4Life Transfer Factor Boost",
+      "name_es": "4Life Transfer Factor Boost",
+      "availability": "all",
+      "regional_config": {
+        "BO": {
+          "id": "3637",
+          "slug": "4life-transfer-factorr-boost---bolivia"
+        },
+        "CL": {
+          "id": "3781",
+          "slug": "tf---boost---chile"
+        },
+        "CR": {
+          "id": "3614",
+          "slug": "4life-tf-boost---costa-rica"
+        },
+        "MX": {
+          "id": "3552",
+          "slug": "tf-boost---mex"
+        },
+        "BR": {
+          "id": "3807",
+          "slug": "tf-boost---brazil"
+        },
+        "CO": {
+          "id": "3550",
+          "slug": "4life-tf-boost",
+          "extra_path": "/105"
+        },
+        "EC": {
+          "id": "3619",
+          "slug": "4life-tf-boost---ecuador",
+          "extra_path": "/105"
+        },
+        "PE": {
+          "id": "3772",
+          "slug": "tf-boost-polvo-oral"
+        }
+      }
+    }
+  },
+  "store_urls": {
+    "full_catalog": "/shop/all"
+  },
+  "notes": "URL Pattern: {domain}/{distributor_code}/product/{product_slug}/{product_id}{extra_path}"
+}

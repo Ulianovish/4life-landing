@@ -3,22 +3,160 @@ import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
 import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
 import Testimonial from "@/layouts/components/Testimonial.astro";
-import Service from "@/layouts/components/Service.astro";
-import Cta from "@/layouts/partials/Cta.astro";
 import { getEntryBySlug } from "astro:content";
-import Pricing from "./pricing.astro";
+import { BsPinAngleFill } from "react-icons/bs";
+import { Image } from "astro:assets";
+import RegionalBuyButton from "@/layouts/function-components/RegionalBuyButton";
+import RegionalStoreLink from "@/layouts/function-components/RegionalStoreLink";
 
 const homepage = await getEntryBySlug("homepage", "index");
-const { banner, key_features, service, testimonial } = homepage.data;
+const { banner, key_features, testimonial } = homepage.data;
+const pricing = await getEntryBySlug("pricing", "index");
 ---
 
 <Base>
   <!-- banner -->
   <Banner banner={banner} />
+
+  <!-- Trust Badges Section -->
+  <section class="section pb-0">
+    <div class="container">
+      <div class="row items-center justify-center">
+        <div class="col-12 text-center">
+          <p class="mb-8 text-sm font-semibold uppercase tracking-wide text-gray-500">
+            Certificado y Respaldado Por
+          </p>
+        </div>
+        <div class="col-6 md:col-3 lg:col-2 flex justify-center mb-6">
+          <div class="rounded-lg bg-white p-4 shadow-sm">
+            <img
+              src="/images/LOGO-INVIMA.webp"
+              alt="Certificación INVIMA Colombia"
+              class="h-16 w-auto object-contain"
+            />
+          </div>
+        </div>
+        <div class="col-6 md:col-3 lg:col-2 flex justify-center mb-6">
+          <div class="rounded-lg bg-white p-4 shadow-sm text-center">
+            <p class="text-2xl font-bold text-primary">25+</p>
+            <p class="text-xs text-gray-600">Años de<br>Investigación</p>
+          </div>
+        </div>
+        <div class="col-6 md:col-3 lg:col-2 flex justify-center mb-6">
+          <div class="rounded-lg bg-white p-4 shadow-sm text-center">
+            <p class="text-2xl font-bold text-primary">50+</p>
+            <p class="text-xs text-gray-600">Patentes<br>Registradas</p>
+          </div>
+        </div>
+        <div class="col-6 md:col-3 lg:col-2 flex justify-center mb-6">
+          <div class="rounded-lg bg-white p-4 shadow-sm text-center">
+            <p class="text-2xl font-bold text-primary">10M+</p>
+            <p class="text-xs text-gray-600">Clientes<br>Satisfechos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- key features -->
   <KeyFeatures key_features={key_features} />
-  <!-- Products -->
-  <Pricing/>
-  <!-- testimonial -->
-  <Testimonial testimonial={testimonial} />
+
+  <!-- Products Section -->
+  <section id="productos" class="section mt-12 pt-0">
+    <div class="container">
+      <div class="row lg:px-10">
+        {
+          pricing.data.pricing_card.map((item: any) => (
+            <div class="mt-8 px-3 md:col-6 lg:col-4 lg:mt-0">
+              <div
+                class={`rounded-xl bg-white px-8 py-10 shadow-lg ${item.featured ? "-mt-16 border border-primary" : ""}`}
+              >
+                <h2 class="h3">{item.title}</h2>
+
+                <div class="product-image-container relative mx-auto my-4 h-[200px] w-[240px] overflow-hidden border-l-2 border-r-2 border-gray-300 transition-all duration-500 ease-in-out hover:h-[300px]">
+                  <Image
+                    class="absolute top-[66%] left-1/2 w-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out hover:top-1/2"
+                    src={`/images/${item.image}.png`}
+                    alt={`${item.title} - Transfer Factor 4Life`}
+                    height={63}
+                    width={63}
+                  />
+                </div>
+
+                <div class="my-6 py-6">
+                  <ul class="mt-6">
+                    {item.services.list.map((service: any) => (
+                      <li class="mb-3 text-sm">
+                        <span class="mr-2">
+                          <BsPinAngleFill
+                            className={`mr-1 inline h-[14px] w-[14px] text-primary`}
+                          />
+                        </span>
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <RegionalBuyButton
+                  productKey={item.product_key}
+                  label={item.buttons.buy_now.label}
+                  fallbackUrl={item.buttons.buy_now.link}
+                  client:load
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonios">
+    <Testimonial testimonial={testimonial} />
+  </section>
+
+  <!-- Full Catalog CTA -->
+  <RegionalStoreLink client:load />
+
+  <!-- FAQ Section -->
+  {pricing.data.faq && pricing.data.faq.faq_list && pricing.data.faq.faq_list.length > 0 && (
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="row justify-center text-center">
+          <div class="lg:col-10">
+            <h2>{pricing.data.faq.title}</h2>
+            <p class="mt-4">{pricing.data.faq.description}</p>
+          </div>
+        </div>
+        <div class="row mt-10 justify-center">
+          <div class="lg:col-10">
+            {pricing.data.faq.faq_list.map((item: any, index: number) => (
+              <details class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <summary class="cursor-pointer text-lg font-semibold text-gray-800 hover:text-primary">
+                  {item.title}
+                </summary>
+                <p class="mt-4 text-gray-600">{item.content}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Structured Data -->
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": pricing.data.faq.faq_list.map((item: any) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
+          }
+        }))
+      })} />
+    </section>
+  )}
 </Base>
