@@ -5,7 +5,7 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
+    "logo": "",
     "logo_width": "147",
     "logo_height": "31",
     "logo_text": "4Life Transfer Factor"
@@ -34,9 +34,9 @@
 
   "params": {
     "footer_description": "Distribuidor oficial de 4Life Transfer Factor. Fortalecemos tu sistema inmunológico con productos respaldados científicamente para mejorar tu salud y bienestar.",
-    "email": "info@transferfactor4life.com",
-    "location": "Servicio a toda América Latina",
-    "phone": "+1-888-454-3374",
+    "email": "proyectoshasugue@gmail.com",
+    "location": "Servicio a toda Colombia",
+    "phone": "+57 314 444 8053",
     "contact_form_action": "#",
     "copyright": "Copyright © 2026 4Life Transfer Factor. Todos los derechos reservados. | [Política de Privacidad](/politica-privacidad) | [Términos y Condiciones](/terminos-condiciones)"
   },

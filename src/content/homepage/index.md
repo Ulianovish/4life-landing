@@ -75,12 +75,12 @@ testimonial:
       avatar: "/images/users/person2.jpg"
       organization: Bogotá, Colombia
       rating: five
-      content: "Después de mi tratamiento, mi sistema inmunológico quedó muy debilitado. Transfer Factor Plus me ayudó a recuperar mi energía y a sentirme más fuerte cada día. Ahora me siento protegido y con la vitalidad que necesitaba para volver a mi rutina."
+      content: "Después de mi tratamiento, mi sistema inmunológico quedó muy debilitado. Transfer Factor Plus me ayudó a recuperar mi energía y a sentirme más fuerte cada día. Ahora me siento protegida y con la vitalidad que necesitaba para volver a mi rutina."
     - author: Viviana Delgado
       avatar: "/images/users/person3.jpg"
       organization: Buenos Aires, Argentina
       rating: four
-      content: "Mi experiencia con Transfer Factor Plus ha sido increíble. Me ayudó a superar el agotamiento que sentía durante mis tratamientos médicos. Ahora, no solo me siento mejor físicamente, sino también más positivo y motivado para enfrentar el día a día."
+      content: "Mi experiencia con Transfer Factor Plus ha sido increíble. Me ayudó a superar el agotamiento que sentía durante mis tratamientos médicos. Ahora, no solo me siento mejor físicamente, sino también más positiva y motivada para enfrentar el día a día."
     - author: Patricia González
       avatar: "/images/users/person4.png"
       organization: Santiago, Chile
