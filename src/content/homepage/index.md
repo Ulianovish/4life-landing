@@ -68,7 +68,7 @@ testimonial:
   testimonial_list:
     - author: Astrid Vega
       avatar: "/images/users/person1.jpg"
-      organization: Cayey, Puerto Rico
+      organization: Medellín, Colombia
       rating: five
       content: "Como madre, siempre me preocupa el bienestar de mi familia. Desde que empecé a tomar Transfer Factor Plus, he notado una gran diferencia en mi salud y en la de mis hijos. Nos sentimos más resistentes a las enfermedades y con más energía."
     - author: Lilia Romero
@@ -78,17 +78,17 @@ testimonial:
       content: "Después de mi tratamiento, mi sistema inmunológico quedó muy debilitado. Transfer Factor Plus me ayudó a recuperar mi energía y a sentirme más fuerte cada día. Ahora me siento protegida y con la vitalidad que necesitaba para volver a mi rutina."
     - author: Viviana Delgado
       avatar: "/images/users/person3.jpg"
-      organization: Buenos Aires, Argentina
+      organization: Cali, Colombia
       rating: four
       content: "Mi experiencia con Transfer Factor Plus ha sido increíble. Me ayudó a superar el agotamiento que sentía durante mis tratamientos médicos. Ahora, no solo me siento mejor físicamente, sino también más positiva y motivada para enfrentar el día a día."
     - author: Patricia González
       avatar: "/images/users/person4.png"
-      organization: Santiago, Chile
+      organization: Cartagena, Colombia
       rating: five
       content: "Siempre he cuidado mi salud, pero después de un periodo difícil, mi cuerpo necesitaba un refuerzo. Transfer Factor Plus fue la respuesta que buscaba. Siento que mi sistema inmunológico está mucho más fuerte y preparado para cualquier reto."
     - author: Luis Alberto Rojas
       avatar: "/images/users/person5.png"
-      organization: Lima, Perú
+      organization: Barranquilla, Colombia
       rating: five
       content: "Tenía mis dudas sobre los suplementos, pero Transfer Factor Plus cambió mi perspectiva. Durante una fase complicada de mi vida, me ayudó a sentirme más fuerte y a superar los efectos secundarios de mi tratamiento. Lo recomiendo a cualquiera que necesite un apoyo extra para su salud."
 ---
