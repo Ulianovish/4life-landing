@@ -26,6 +26,14 @@
     {
       "name": "Productos",
       "url": "#productos"
+    },
+    {
+      "name": "Política de Privacidad",
+      "url": "/politica-privacidad"
+    },
+    {
+      "name": "Términos y Condiciones",
+      "url": "/terminos-condiciones"
     }
   ]
 }
