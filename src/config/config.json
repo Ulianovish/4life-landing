@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Transfer Factor Plus 4Life - Fortalece tu Sistema Inmunológico",
+    "title": "Transfer Factor Plus 4Life - Apoyo al Bienestar General",
     "base_url": "https://pinwheel-astro.vercel.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -33,7 +33,7 @@
   },
 
   "params": {
-    "footer_description": "Distribuidor oficial de 4Life Transfer Factor. Fortalecemos tu sistema inmunológico con productos respaldados científicamente para mejorar tu salud y bienestar.",
+    "footer_description": "Distribuidor oficial de 4Life Transfer Factor. Complementamos tu rutina saludable con productos respaldados científicamente por 4Life Research para apoyar tu bienestar.",
     "email": "proyectoshasugue@gmail.com",
     "location": "Servicio a toda Colombia",
     "phone": "+57 314 444 8053",
@@ -44,6 +44,6 @@
   "metadata": {
     "meta_author": "4Life Transfer Factor",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Fortalece tu sistema inmunológico con Transfer Factor Plus de 4Life. Suplemento respaldado científicamente para mejorar tus defensas naturales, aumentar tu vitalidad y apoyar tu salud durante tratamientos médicos. Miles de personas confían en nosotros."
+    "meta_description": "Descubre Transfer Factor Plus de 4Life. Suplemento nutricional respaldado científicamente para apoyar tu bienestar general, aportar vitalidad y complementar tu rutina saludable. Miles de personas confían en nosotros."
   }
 }
