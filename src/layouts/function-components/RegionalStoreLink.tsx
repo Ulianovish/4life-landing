@@ -38,7 +38,7 @@ const RegionalStoreLink: React.FC<RegionalStoreLinkProps> = ({
             <h2 className="mb-4">Explora Nuestro Catálogo Completo</h2>
             <p className="mb-8 text-lg text-gray-600">
               Descubre todos nuestros productos de Transfer Factor y encuentra
-              la solución perfecta para fortalecer tu sistema inmunológico.
+              el complemento ideal para tu rutina saludable.
             </p>
             <a
               className={className}
