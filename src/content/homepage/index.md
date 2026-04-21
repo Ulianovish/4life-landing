@@ -87,7 +87,7 @@ testimonial:
       rating: five
       content: "Siempre he cuidado mi salud, pero después de un periodo difícil, mi cuerpo necesitaba un refuerzo. Transfer Factor Plus fue la respuesta que buscaba. Siento que mi sistema inmunológico está mucho más fuerte y preparado para cualquier reto."
     - author: Luis Alberto Rojas
-      avatar: "/images/users/person5.png"
+      avatar: "/images/users/person5.jpeg"
       organization: Barranquilla, Colombia
       rating: five
       content: "Tenía mis dudas sobre los suplementos, pero Transfer Factor Plus cambió mi perspectiva. Durante una fase complicada de mi vida, me ayudó a sentirme más fuerte y a superar los efectos secundarios de mi tratamiento. Lo recomiendo a cualquiera que necesite un apoyo extra para su salud."
