@@ -23,3 +23,10 @@ package-lock.json
 
 # ignore .astro directory
 .astro
+
+# sensitive project docs (credentials, internal notes) — NEVER commit
+docs-internal/
+*Credenciales*
+*credentials*.md
+*credentials*.docx
+*credentials*.txt
