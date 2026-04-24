@@ -1,0 +1,354 @@
+---
+import Base from "@/layouts/Base.astro";
+
+const title = "Verificador de Anuncios — Evita Rechazos en Google Ads";
+const description = "Pega el texto de tu anuncio de Google Ads y descubre si tiene términos prohibidos por las políticas médicas. Herramienta gratuita para distribuidores 4Life.";
+---
+
+<Base title={title} meta_title={title} description={description} noindex={false}>
+  <section class="section pt-24 pb-12">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10 text-center mb-10">
+          <h1 class="h2 mb-4">Verificador de Anuncios Google Ads</h1>
+          <p class="text-lg text-text">
+            Pega el texto de tu anuncio (titulares y descripciones) y te diremos si contiene
+            <strong>términos prohibidos</strong> por las políticas médicas de Google.
+            <br />
+            <span class="text-sm text-text-light">
+              Diseñado para distribuidores 4Life en Latinoamérica. 100% gratis · No guardamos tu texto.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="bg-white rounded-xl shadow-lg p-6 md:p-10">
+            <label for="ad-copy" class="block font-semibold mb-2 text-lg">
+              Pega aquí el texto de tu anuncio:
+            </label>
+            <p class="text-sm text-text-light mb-3">
+              Podés pegar titulares, descripciones, textos destacados o todo junto. Un titular o descripción por línea funciona mejor.
+            </p>
+            <textarea
+              id="ad-copy"
+              rows="10"
+              class="w-full p-4 border-2 border-border rounded-lg font-mono text-sm focus:border-primary focus:outline-none"
+              placeholder="Ejemplo:&#10;Transfer Factor Original 4Life&#10;Distribuidor Autorizado en Colombia&#10;Asesoría Personalizada por WhatsApp&#10;Producto 100% Original con Envío Nacional"
+            ></textarea>
+
+            <div class="mt-4 flex flex-col sm:flex-row gap-3">
+              <button
+                id="verify-btn"
+                class="btn btn-primary px-8 py-3 rounded-lg font-semibold"
+              >
+                Verificar Anuncio
+              </button>
+              <button
+                id="clear-btn"
+                class="btn btn-outline-primary px-6 py-3 rounded-lg"
+              >
+                Limpiar
+              </button>
+            </div>
+
+            <div id="results" class="mt-8 hidden"></div>
+          </div>
+
+          <div class="mt-10 bg-gray-50 rounded-xl p-6">
+            <h3 class="h5 mb-3">¿Por qué importa esto?</h3>
+            <ul class="space-y-2 text-text">
+              <li>❌ Google rechaza anuncios de suplementos que prometen <strong>curar, tratar o prevenir enfermedades</strong>.</li>
+              <li>❌ Si te rechazan varios anuncios, tu cuenta puede quedar <strong>suspendida</strong>.</li>
+              <li>✅ Esta herramienta detecta esos términos <strong>antes</strong> de que envíes el anuncio.</li>
+              <li>💡 También sugiere reemplazos seguros usando lenguaje de bienestar permitido.</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 text-center text-sm text-text-light">
+            <p>
+              Esta herramienta es una guía. La aprobación final depende de Google y de la combinación específica de tu anuncio + landing page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // ============================================
+    // BASE DE DATOS DE TÉRMINOS PROHIBIDOS
+    // ============================================
+
+    // RIESGO ALTO: rechazo casi seguro
+    const HIGH_RISK = [
+      // Tratamiento / cura
+      { term: "cura", reason: "Promete curar enfermedades (prohibido)", suggestion: "Evitar — no usar términos de cura" },
+      { term: "curar", reason: "Promete curar enfermedades", suggestion: "Evitar" },
+      { term: "curación", reason: "Promete curar enfermedades", suggestion: "Evitar" },
+      { term: "tratamiento", reason: "Sugiere uso médico", suggestion: "Reemplazar por: 'producto de bienestar'" },
+      { term: "tratar", reason: "Sugiere uso médico", suggestion: "Evitar en contexto de salud" },
+      { term: "remedio", reason: "Lenguaje médico prohibido", suggestion: "Reemplazar por: 'producto natural'" },
+      { term: "terapia", reason: "Lenguaje médico", suggestion: "Evitar" },
+      { term: "sana", reason: "Promete sanación", suggestion: "Evitar" },
+      { term: "sanar", reason: "Promete sanación", suggestion: "Evitar" },
+      { term: "sanación", reason: "Promete sanación", suggestion: "Evitar" },
+      { term: "alivia", reason: "Claim médico", suggestion: "Evitar" },
+      { term: "calma", reason: "Claim médico (en contexto salud)", suggestion: "Revisar contexto" },
+      { term: "medicina", reason: "Lenguaje farmacéutico", suggestion: "Evitar — no es medicamento" },
+      { term: "medicamento", reason: "No es medicamento", suggestion: "Reemplazar por: 'suplemento alimenticio'" },
+      // Prevención
+      { term: "previene", reason: "Promete prevenir enfermedades", suggestion: "Evitar — no se puede prometer prevención" },
+      { term: "prevención", reason: "Claim de prevención prohibido", suggestion: "Evitar" },
+      { term: "prevenir", reason: "Claim de prevención prohibido", suggestion: "Evitar" },
+      { term: "evita", reason: "Sugiere prevención", suggestion: "Reemplazar por: 'apoya' (con cuidado)" },
+      // Diagnóstico
+      { term: "diagnóstico", reason: "Lenguaje médico prohibido", suggestion: "Evitar" },
+      { term: "diagnostica", reason: "Lenguaje médico prohibido", suggestion: "Evitar" },
+      // Sistema inmune
+      { term: "sistema inmunológico", reason: "Claim médico prohibido", suggestion: "Reemplazar por: 'estilo de vida activo' o 'bienestar general'" },
+      { term: "sistema inmune", reason: "Claim médico prohibido", suggestion: "Reemplazar por: 'bienestar general'" },
+      { term: "inmunidad", reason: "Claim médico prohibido", suggestion: "Evitar" },
+      { term: "inmunológico", reason: "Claim médico prohibido", suggestion: "Evitar" },
+      { term: "inmune", reason: "Claim médico (revisar contexto)", suggestion: "Evitar" },
+      { term: "subir defensas", reason: "Claim médico prohibido", suggestion: "Reemplazar por: 'apoyar tu bienestar'" },
+      { term: "elevar defensas", reason: "Claim médico prohibido", suggestion: "Reemplazar por: 'apoyar tu rutina saludable'" },
+      { term: "fortalecer defensas", reason: "Claim médico prohibido", suggestion: "Reemplazar por: 'complementar tu nutrición'" },
+      { term: "aumentar defensas", reason: "Claim médico prohibido", suggestion: "Evitar" },
+      { term: "mejorar defensas", reason: "Claim médico prohibido", suggestion: "Evitar" },
+      // Garantías y milagros
+      { term: "milagro", reason: "Lenguaje sensacionalista prohibido", suggestion: "Evitar" },
+      { term: "milagroso", reason: "Lenguaje sensacionalista prohibido", suggestion: "Evitar" },
+      { term: "100% efectivo", reason: "Garantía absoluta prohibida", suggestion: "Evitar — no se permiten garantías" },
+      { term: "100% seguro", reason: "Garantía absoluta prohibida", suggestion: "Evitar" },
+      { term: "garantizado", reason: "Garantía médica prohibida (en contexto salud)", suggestion: "Solo usar para envío/devolución, no resultados" },
+      { term: "resultados garantizados", reason: "Garantía absoluta prohibida", suggestion: "Evitar completamente" },
+      // Enfermedades específicas
+      { term: "cáncer", reason: "Mencionar enfermedades graves está prohibido", suggestion: "Evitar nombrar enfermedades" },
+      { term: "covid", reason: "Mencionar COVID está restringido", suggestion: "Evitar" },
+      { term: "coronavirus", reason: "Restringido", suggestion: "Evitar" },
+      { term: "diabetes", reason: "Mencionar enfermedad", suggestion: "Evitar" },
+      { term: "hipertensión", reason: "Mencionar enfermedad", suggestion: "Evitar" },
+      { term: "artritis", reason: "Mencionar enfermedad", suggestion: "Evitar" },
+      { term: "alzheimer", reason: "Mencionar enfermedad grave", suggestion: "Evitar" },
+      { term: "asma", reason: "Mencionar enfermedad", suggestion: "Evitar" },
+      { term: "vih", reason: "Mencionar enfermedad grave", suggestion: "Evitar" },
+      { term: "lupus", reason: "Mencionar enfermedad", suggestion: "Evitar" },
+      { term: "tiroides", reason: "Mencionar condición médica", suggestion: "Evitar" },
+      { term: "depresión", reason: "Mencionar condición médica", suggestion: "Evitar" },
+      { term: "ansiedad", reason: "Mencionar condición médica", suggestion: "Evitar" },
+      { term: "insomnio", reason: "Mencionar condición médica", suggestion: "Evitar" },
+      // Claims regulatorios falsos
+      { term: "aprobado por la fda", reason: "Claim regulatorio falso", suggestion: "Evitar — los suplementos no se aprueban por FDA" },
+      { term: "aprobado por fda", reason: "Claim regulatorio falso", suggestion: "Evitar" },
+      { term: "certificado médico", reason: "Claim regulatorio falso", suggestion: "Evitar" },
+      { term: "recetado", reason: "No es medicamento recetado", suggestion: "Evitar" },
+      { term: "prescrito", reason: "No es medicamento recetado", suggestion: "Evitar" },
+      // Otros
+      { term: "enfermedad", reason: "Mencionar enfermedades es problemático", suggestion: "Evitar" },
+      { term: "patología", reason: "Lenguaje médico", suggestion: "Evitar" },
+      { term: "síntoma", reason: "Lenguaje médico", suggestion: "Evitar" },
+      { term: "síntomas", reason: "Lenguaje médico", suggestion: "Evitar" },
+      { term: "dolor", reason: "Claim médico (revisar contexto)", suggestion: "Evitar en contexto suplemento" },
+    ];
+
+    // RIESGO MEDIO: requiere revisión humana
+    const MEDIUM_RISK = [
+      { term: "salud", reason: "Puede sonar a claim médico según contexto", suggestion: "Preferir: 'bienestar' o 'estilo de vida activo'" },
+      { term: "saludable", reason: "Puede sonar a claim médico", suggestion: "Preferir: 'rutina activa'" },
+      { term: "natural", reason: "Google a veces lo flagea en suplementos", suggestion: "Usar con moderación" },
+      { term: "energía", reason: "Puede ser claim médico según contexto", suggestion: "Preferir: 'vitalidad' o frase neutra" },
+      { term: "antioxidante", reason: "Claim funcional flageado a veces", suggestion: "Revisar contexto" },
+      { term: "perder peso", reason: "Claims de peso son altamente regulados", suggestion: "Evitar — categoría sensible" },
+      { term: "bajar de peso", reason: "Claims de peso son altamente regulados", suggestion: "Evitar" },
+      { term: "adelgazar", reason: "Claims de peso son altamente regulados", suggestion: "Evitar" },
+      { term: "rejuvenecer", reason: "Claim antiedad flageado", suggestion: "Evitar" },
+      { term: "antiedad", reason: "Claim antiedad flageado", suggestion: "Evitar" },
+      { term: "antes y después", reason: "Comparaciones antes/después restringidas", suggestion: "Evitar" },
+      { term: "resultados rápidos", reason: "Promesa de resultados restringida", suggestion: "Evitar" },
+      { term: "transformación", reason: "Promesa de cambio físico restringida", suggestion: "Revisar contexto" },
+      { term: "vitamina", reason: "OK pero revisa contexto", suggestion: "Generalmente seguro" },
+      { term: "vitaminas", reason: "OK pero revisa contexto", suggestion: "Generalmente seguro" },
+      { term: "suplemento", reason: "OK con buen contexto", suggestion: "Generalmente seguro" },
+      { term: "bienestar", reason: "Término preferido por Google", suggestion: "✅ Lenguaje recomendado" },
+    ];
+
+    // ============================================
+    // LÓGICA DE VERIFICACIÓN
+    // ============================================
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      })[c]);
+    }
+
+    function findMatches(text, database) {
+      const lower = text.toLowerCase();
+      const matches = [];
+      const seen = new Set();
+      database.forEach(entry => {
+        const regex = new RegExp('\\b' + entry.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+        const found = lower.match(regex);
+        if (found && !seen.has(entry.term)) {
+          seen.add(entry.term);
+          matches.push({
+            term: entry.term,
+            count: found.length,
+            reason: entry.reason,
+            suggestion: entry.suggestion
+          });
+        }
+      });
+      return matches;
+    }
+
+    function analyzeLines(text) {
+      const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      return lines.map(line => {
+        const len = line.length;
+        let issues = [];
+        if (len <= 30) {
+          // Posible titular
+          issues.push({ type: 'info', msg: `Titular OK (${len}/30 caracteres)` });
+        } else if (len <= 90) {
+          issues.push({ type: 'info', msg: `Descripción OK (${len}/90 caracteres)` });
+        } else {
+          issues.push({ type: 'error', msg: `Línea muy larga (${len} caracteres) — máximo 90 para descripciones, 30 para titulares` });
+        }
+        return { line, len, issues };
+      });
+    }
+
+    function verify() {
+      const text = document.getElementById('ad-copy').value.trim();
+      const results = document.getElementById('results');
+
+      if (!text) {
+        results.classList.remove('hidden');
+        results.innerHTML = '<div class="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4 text-yellow-800">⚠️ Pega el texto de tu anuncio primero.</div>';
+        return;
+      }
+
+      const highMatches = findMatches(text, HIGH_RISK);
+      const mediumMatches = findMatches(text, MEDIUM_RISK);
+      const lineAnalysis = analyzeLines(text);
+
+      let html = '';
+
+      // Resumen
+      const totalIssues = highMatches.length + mediumMatches.length;
+      if (highMatches.length === 0 && mediumMatches.length === 0) {
+        html += '<div class="bg-green-50 border-2 border-green-400 rounded-lg p-6 mb-6">';
+        html += '<h3 class="text-xl font-bold text-green-800 mb-2">✅ ¡Tu anuncio se ve bien!</h3>';
+        html += '<p class="text-green-700">No detecté términos prohibidos. Aún así, recordá que la aprobación final la decide Google considerando también tu landing page.</p>';
+        html += '</div>';
+      } else {
+        const severity = highMatches.length > 0 ? 'red' : 'yellow';
+        const bgClass = severity === 'red' ? 'bg-red-50 border-red-400' : 'bg-yellow-50 border-yellow-400';
+        const txtClass = severity === 'red' ? 'text-red-800' : 'text-yellow-800';
+        const icon = severity === 'red' ? '🚨' : '⚠️';
+        const titleMsg = severity === 'red'
+          ? `Encontré ${highMatches.length} problema${highMatches.length > 1 ? 's' : ''} grave${highMatches.length > 1 ? 's' : ''}`
+          : `Encontré ${mediumMatches.length} término${mediumMatches.length > 1 ? 's' : ''} a revisar`;
+        html += `<div class="${bgClass} border-2 rounded-lg p-6 mb-6">`;
+        html += `<h3 class="text-xl font-bold ${txtClass} mb-2">${icon} ${titleMsg}</h3>`;
+        if (severity === 'red') {
+          html += '<p class="' + txtClass + '">Tu anuncio probablemente será rechazado por Google. Revisa los términos abajo y reemplázalos antes de enviar.</p>';
+        } else {
+          html += '<p class="' + txtClass + '">Estos términos no son rechazo seguro, pero conviene revisarlos.</p>';
+        }
+        html += '</div>';
+      }
+
+      // Términos rojos
+      if (highMatches.length > 0) {
+        html += '<div class="mb-6"><h4 class="font-bold text-lg mb-3 text-red-700">🚨 Términos prohibidos (rechazo casi seguro)</h4>';
+        html += '<div class="space-y-3">';
+        highMatches.forEach(m => {
+          html += '<div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">';
+          html += `<div class="font-bold text-red-800">"${escapeHtml(m.term)}" <span class="text-sm font-normal text-red-600">(${m.count} vez${m.count > 1 ? 'es' : ''})</span></div>`;
+          html += `<div class="text-sm text-red-700 mt-1"><strong>Por qué:</strong> ${escapeHtml(m.reason)}</div>`;
+          html += `<div class="text-sm text-red-700 mt-1"><strong>Solución:</strong> ${escapeHtml(m.suggestion)}</div>`;
+          html += '</div>';
+        });
+        html += '</div></div>';
+      }
+
+      // Términos amarillos
+      if (mediumMatches.length > 0) {
+        html += '<div class="mb-6"><h4 class="font-bold text-lg mb-3 text-yellow-700">⚠️ Términos a revisar (depende del contexto)</h4>';
+        html += '<div class="space-y-3">';
+        mediumMatches.forEach(m => {
+          html += '<div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">';
+          html += `<div class="font-bold text-yellow-800">"${escapeHtml(m.term)}" <span class="text-sm font-normal text-yellow-700">(${m.count} vez${m.count > 1 ? 'es' : ''})</span></div>`;
+          html += `<div class="text-sm text-yellow-800 mt-1"><strong>Nota:</strong> ${escapeHtml(m.reason)}</div>`;
+          html += `<div class="text-sm text-yellow-800 mt-1"><strong>Sugerencia:</strong> ${escapeHtml(m.suggestion)}</div>`;
+          html += '</div>';
+        });
+        html += '</div></div>';
+      }
+
+      // Análisis por línea (caracteres)
+      if (lineAnalysis.length > 0) {
+        const tooLong = lineAnalysis.filter(l => l.len > 90);
+        const overTitle = lineAnalysis.filter(l => l.len > 30 && l.len <= 90);
+        if (tooLong.length > 0 || overTitle.length > 0) {
+          html += '<div class="mb-6"><h4 class="font-bold text-lg mb-3 text-blue-700">📏 Conteo de caracteres</h4>';
+          html += '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded text-sm space-y-2">';
+          html += '<p><strong>Límites Google Ads:</strong> Titulares = 30 caracteres · Descripciones = 90 caracteres · Paths URL = 15 caracteres</p>';
+          if (tooLong.length > 0) {
+            html += `<p class="text-red-700">❌ ${tooLong.length} línea${tooLong.length > 1 ? 's' : ''} excede${tooLong.length > 1 ? 'n' : ''} los 90 caracteres y serán cortadas.</p>`;
+          }
+          if (overTitle.length > 0) {
+            html += `<p>ℹ️ ${overTitle.length} línea${overTitle.length > 1 ? 's' : ''} entre 31-90 caracteres — válida${overTitle.length > 1 ? 's' : ''} solo como descripción, no como titular.</p>`;
+          }
+          html += '</div></div>';
+        }
+      }
+
+      // Lenguaje recomendado
+      html += '<div class="mt-8 bg-gray-50 rounded-lg p-5">';
+      html += '<h4 class="font-bold mb-3">💡 Lenguaje seguro para Google Ads</h4>';
+      html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">';
+      html += '<div><strong class="text-green-700">✅ Usar:</strong><ul class="mt-1 space-y-1 text-text">';
+      html += '<li>• Bienestar general</li>';
+      html += '<li>• Estilo de vida activo</li>';
+      html += '<li>• Producto natural / nutricional</li>';
+      html += '<li>• Distribuidor autorizado</li>';
+      html += '<li>• Producto 100% original</li>';
+      html += '<li>• Asesoría personalizada</li>';
+      html += '<li>• Envío a toda Colombia</li>';
+      html += '<li>• Vitalidad, energía positiva</li>';
+      html += '</ul></div>';
+      html += '<div><strong class="text-red-700">❌ Evitar:</strong><ul class="mt-1 space-y-1 text-text">';
+      html += '<li>• Cualquier nombre de enfermedad</li>';
+      html += '<li>• Verbos "curar/tratar/prevenir/sanar"</li>';
+      html += '<li>• "Sistema inmunológico" o "defensas"</li>';
+      html += '<li>• "Garantizado", "milagro", "100%"</li>';
+      html += '<li>• "Recetado", "medicamento"</li>';
+      html += '<li>• "Aprobado por FDA/INVIMA"</li>';
+      html += '<li>• Claims antes/después</li>';
+      html += '<li>• Pérdida de peso</li>';
+      html += '</ul></div>';
+      html += '</div></div>';
+
+      results.classList.remove('hidden');
+      results.innerHTML = html;
+      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function clear() {
+      document.getElementById('ad-copy').value = '';
+      const results = document.getElementById('results');
+      results.classList.add('hidden');
+      results.innerHTML = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('verify-btn').addEventListener('click', verify);
+      document.getElementById('clear-btn').addEventListener('click', clear);
+    });
+  </script>
+</Base>
