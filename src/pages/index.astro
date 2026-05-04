@@ -8,6 +8,7 @@ import { BsPinAngleFill } from "react-icons/bs";
 import { Image } from "astro:assets";
 import RegionalBuyButton from "@/layouts/function-components/RegionalBuyButton";
 import RegionalStoreLink from "@/layouts/function-components/RegionalStoreLink";
+import LeadMagnetCTA from "@/layouts/function-components/LeadMagnetCTA";
 
 const homepage = await getEntryBySlug("homepage", "index");
 const { banner, key_features, testimonial } = homepage.data;
@@ -17,6 +18,9 @@ const pricing = await getEntryBySlug("pricing", "index");
 <Base>
   <!-- banner -->
   <Banner banner={banner} />
+
+  <!-- Lead Magnet: Guía 7 hábitos -->
+  <LeadMagnetCTA client:load />
 
   <!-- Trust Badges Section -->
   <section class="section pb-0">

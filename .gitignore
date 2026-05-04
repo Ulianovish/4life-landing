@@ -30,3 +30,7 @@ docs-internal/
 *credentials*.md
 *credentials*.docx
 *credentials*.txt
+
+# source folder for lead magnets (deployable copies live in public/guias/)
+/Guias/
+/guias/
