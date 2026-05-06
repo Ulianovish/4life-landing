@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// ⚠️ URL del Apps Script Web App publicado en bienestarhasugue@gmail.com.
-// Reemplazar por la URL real una vez creada (ver instrucciones de setup).
-// Mientras esté en PLACEHOLDER, el form mostrará un mensaje y no enviará.
+// URL del Apps Script Web App publicado en bienestarhasugue@gmail.com.
+// Sheet destino: "Leads Transfer Vital - Guía 7 hábitos".
+// Si se republica el Apps Script (Implementar → Administrar implementaciones),
+// la URL CAMBIA y hay que actualizarla aquí.
 const LEAD_CAPTURE_URL =
-  "https://script.google.com/macros/s/PLACEHOLDER_REPLACE_ME/exec";
+  "https://script.google.com/macros/s/AKfycbxS9dy_cBg2ye36QF26JklidjBsJP3NxV9Nj4m2KCbheqmh5uAncsGnIqENswWYt3l-/exec";
 
 const PDF_URL = "/guias/guia-7-habitos.pdf";
 const PDF_FILENAME = "Guia-7-Habitos-Vida-Saludable.pdf";
