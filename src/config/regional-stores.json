@@ -88,15 +88,11 @@
     "transfer-factor-boost": {
       "name": "4Life Transfer Factor Boost",
       "name_es": "4Life Transfer Factor Boost",
-      "availability": "all",
+      "availability": ["BO", "CR", "MX", "BR", "CO", "EC", "PE"],
       "regional_config": {
         "BO": {
           "id": "3637",
           "slug": "4life-transfer-factorr-boost---bolivia"
-        },
-        "CL": {
-          "id": "3781",
-          "slug": "tf---boost---chile"
         },
         "CR": {
           "id": "3614",

@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Transfer Factor Plus 4Life - Apoyo al Bienestar General",
-    "base_url": "https://pinwheel-astro.vercel.app",
+    "base_url": "https://transfervital.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
