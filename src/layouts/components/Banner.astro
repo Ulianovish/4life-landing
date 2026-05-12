@@ -2,6 +2,7 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import Animation from "./Animation.astro";
+import RegionalCatalogButton from "@/layouts/function-components/RegionalCatalogButton";
 const { banner } = Astro.props;
 const { title, button, image, content, image_alt } = banner;
 ---
@@ -20,9 +21,12 @@ const { title, button, image, content, image_alt } = banner;
         {
           button.enable && (
             <div class="flex justify-center mt-8">
-              <a class="btn-blue" href={button.link}>
-                {button.label}
-              </a>
+              <RegionalCatalogButton
+                label={button.label}
+                fallbackUrl={button.link}
+                className="btn-blue"
+                client:load
+              />
             </div>
           )
         }

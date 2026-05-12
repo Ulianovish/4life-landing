@@ -5,6 +5,11 @@ command = "yarn build"
 [build.environment]
 NODE_VERSION = "20.20.2"
 
+# Geo detection — sets nf_country cookie from Netlify's edge geo data
+[[edge_functions]]
+function = "geo"
+path = "/*"
+
 # Redirects for SPA-like behavior
 [[redirects]]
 from = "/404"
