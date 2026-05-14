@@ -167,7 +167,13 @@ El estado se inserta en el system prompt como `FASE_ACTUAL: <estado>`, lo que di
 
     BONUS UNIVERSAL incluido con TODA compra:
     • "Guía Maestra de Consumo 4life" — valor percibido 80,000 COP
-    • Guía específica asociada al producto comprado
+    • Guía específica asociada al producto comprado (lookup en `guia_especifica`
+      del producto). Ejemplos del mapeo:
+        – Fibra              → Guía de Desintoxicación
+        – Producto energía   → Guía para Elevar la Energía Naturalmente
+        – [otros productos]  → [guía correspondiente]
+      REGLA: la guía específica SIEMPRE coincide con el producto recomendado,
+      nunca menciones una guía que no corresponda al producto en juego.
 
 [4] GUARDRAILS DE COMPLIANCE (4life + INVIMA)
     NUNCA digas: "cura", "trata", "diagnostica", "previene enfermedad",
@@ -191,7 +197,7 @@ El estado se inserta en el system prompt como `FASE_ACTUAL: <estado>`, lo que di
 
 - **GREETING:** Saluda cálido. Si hay `product_context`, refiérete a él ("Vi que viste RioVida en la página"). Si no, abre amplio. Una sola pregunta.
 - **DISCOVERY:** Identifica QUÉ trae al cliente. 1-2 preguntas abiertas sobre objetivo de bienestar. NO recomiendes producto todavía.
-- **RECOMMEND:** Recomienda UN producto del catálogo que más le sirva. Explica POR QUÉ ese (1 razón concreta). Menciona el bonus de guías UNA sola vez aquí (Guía Maestra valor 80k + guía específica). Cierra con pregunta que invite a la decisión.
+- **RECOMMEND:** Recomienda UN producto del catálogo que más le sirva. Explica POR QUÉ ese (1 razón concreta). Menciona el bonus de guías UNA sola vez aquí: Guía Maestra (valor 80k) + la guía específica que corresponde a ESE producto exacto (lookup `guia_especifica`). Nunca menciones una guía que no corresponda al producto recomendado. Cierra con pregunta que invite a la decisión.
 - **OBJECTION:** Reconoce la objeción. Si es de precio, recuerda el valor de las guías incluidas. Si es de confianza, comparte un testimonio aprobado. Si es "lo pienso", pregunta qué duda específica tiene. Máximo 3 turnos en esta fase antes de HANDOFF_STUCK.
 - **INTENT_BUY:** Confirma la decisión y pasa a captura. "Perfecto, vamos a dejar tu pedido listo. ¿Me confirmas tu nombre completo?"
 - **DATA_CAPTURE:** Pide UN dato por turno, en orden: nombre → ciudad y país → dirección (si Colombia) → cantidad. Confirma cada dato recibido antes de pedir el siguiente. **Si país ≠ Colombia:** salta la captura de dirección y va directo a `CONFIRMATION` con el link de tienda 4life como acción principal (no como backup), porque Mildred no procesa pedidos LATAM — el cliente compra él mismo en la tienda 4life. Mildred igual recibe notificación del lead capturado para seguimiento.
@@ -376,7 +382,7 @@ CREATE TABLE events (
 ## 8. Pendientes de Mildred antes de implementación
 
 1. **Catálogo:** Lista exacta de 3-5 productos estrella con: nombre comercial, precio Colombia (COP), precio USD referencia, beneficios permitidos, casos de uso típicos, testimonios aprobados, link de tienda 4life con código
-2. **Guías específicas:** Mapeo producto → guía específica que se entrega (ej: RioVida → Guía de Desintoxicación)
+2. **Guías específicas:** Mapeo completo producto → guía específica que se entrega. Ejemplos confirmados: Fibra → Guía de Desintoxicación; producto para energía → Guía para Elevar la Energía Naturalmente. Falta confirmar el resto de los productos estrella y su guía asociada.
 3. **Confirmación del número:** WhatsApp de Transfer Vital actual será el del bot (riesgo aceptado de ban Baileys)
 4. **Hosting:** Decidir proveedor (Railway / Render / Fly.io) y crear cuenta
 5. **Cuenta Anthropic:** API key con presupuesto mensual definido
