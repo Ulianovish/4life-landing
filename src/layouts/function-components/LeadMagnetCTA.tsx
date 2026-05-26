@@ -154,7 +154,10 @@ const LeadMagnetCTA: React.FC = () => {
   return (
     <>
       {/* CTA Section */}
-      <section className="section bg-gradient-to-r from-primary/10 via-white to-primary/10">
+      <section
+        id="guia-gratis"
+        className="section bg-gradient-to-r from-primary/10 via-white to-primary/10"
+      >
         <div className="container">
           <div className="row items-center justify-center">
             <div className="lg:col-10 text-center">
