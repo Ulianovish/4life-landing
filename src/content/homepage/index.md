@@ -2,7 +2,7 @@
 banner:
   title: "Únete A Miles De Personas Que Apoyan Su Bienestar Cada Día"
   content: "Descubre los nutrientes esenciales de Transfer Factor Plus para complementar tu rutina saludable."
-  image: /images/TransferFactor-removebg-preview.png
+  image: /images/TransferFactor-removebg-preview.webp
   image_alt: "Transfer Factor Plus de 4Life - Suplemento nutricional para el bienestar general"
   button:
     label: Comprar Ahora
@@ -35,18 +35,18 @@ service:
     tab_list:
         - title: Habit building essential choose habit
           icon: "lock"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/sells-by-country.png"
+          image: "/images/sells-by-country.webp"
         - title: Get an overview of Habit Calendars.
           icon: "clock"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/collaboration.png"
+          image: "/images/collaboration.webp"
         - title: Start building with Habitify platform
           icon: "bell"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/sells-by-country.png"
+          image: "/images/sells-by-country.webp"
 
   our_service:
     - title: Accept payments any country in this whole universe
       desctiption: Donec sollicitudin molestie malesda. Donec sollitudin molestie malesuada. Mauris pellentesque nec, egestas non nisi. Cras ultricies ligula sed
-      image: "/images/collaboration.png"
+      image: "/images/collaboration.webp"
       list:
         - Supporting more than 119 country world
         - Open transaction with more than currencies
@@ -54,7 +54,7 @@ service:
     - title: Accountability that works for you
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
       video:
-        thumbnail: "/images/intro-thumbnail.png"
+        thumbnail: "/images/intro-thumbnail.webp"
         video_id: "g3-VxLQO7do"
       button:
         label: Know About Us
@@ -67,27 +67,27 @@ testimonial:
   description: Miles de personas han mejorado su bienestar y calidad de vida gracias al poder de Transfer Factor. Descubre cómo nuestros productos han ayudado a complementar rutinas saludables con más energía y vitalidad.
   testimonial_list:
     - author: Astrid Vega
-      avatar: "/images/users/person1.jpg"
+      avatar: "/images/users/person1.webp"
       organization: Medellín, Colombia
       rating: five
       content: "Como madre, siempre me preocupa el bienestar de mi familia. Desde que empecé a tomar Transfer Factor Plus, he notado una gran diferencia en nuestra energía y vitalidad. Nos sentimos más activos y con mejor rutina cada día."
     - author: Lilia Romero
-      avatar: "/images/users/person2.jpg"
+      avatar: "/images/users/person2.webp"
       organization: Bogotá, Colombia
       rating: five
       content: "Después de una etapa difícil, mi cuerpo necesitaba un apoyo nutricional extra. Transfer Factor Plus me ayudó a recuperar mi energía y a sentirme más fuerte cada día. Ahora me siento con la vitalidad que necesitaba para volver a mi rutina."
     - author: Viviana Delgado
-      avatar: "/images/users/person3.jpg"
+      avatar: "/images/users/person3.webp"
       organization: Cali, Colombia
       rating: four
       content: "Mi experiencia con Transfer Factor Plus ha sido muy positiva. Me ayudó a superar el agotamiento de épocas exigentes. Ahora, no solo me siento mejor físicamente, sino también más positiva y motivada para enfrentar el día a día."
     - author: Patricia González
-      avatar: "/images/users/person4.png"
+      avatar: "/images/users/person4.webp"
       organization: Cartagena, Colombia
       rating: five
       content: "Siempre he cuidado mi bienestar, pero después de un periodo difícil, mi cuerpo necesitaba un refuerzo nutricional. Transfer Factor Plus fue la respuesta que buscaba. Siento que mi bienestar general está mucho mejor y listo para cualquier reto."
     - author: Luis Alberto Rojas
-      avatar: "/images/users/person5.jpeg"
+      avatar: "/images/users/person5.webp"
       organization: Barranquilla, Colombia
       rating: five
       content: "Tenía mis dudas sobre los suplementos, pero Transfer Factor Plus cambió mi perspectiva. Durante una fase complicada de mi vida, me ayudó a sentirme con más fuerza y a recuperar mi energía diaria. Lo recomiendo a cualquiera que necesite un apoyo extra para su bienestar."
