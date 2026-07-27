@@ -60,6 +60,10 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- Preload LCP hero image (background banner) -->
     <link rel="preload" as="image" href="/images/background_banner.webp" fetchpriority="high" />
 
+    <!-- Preconnect to Google Fonts for faster load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
