@@ -20,7 +20,7 @@ const pricing = await getEntryBySlug("pricing", "index");
   <Banner banner={banner} />
 
   <!-- Lead Magnet: Guía 7 hábitos -->
-  <LeadMagnetCTA client:load />
+  <LeadMagnetCTA client:idle />
 
   <!-- Trust Badges Section -->
   <section class="section pb-0">
@@ -106,7 +106,7 @@ const pricing = await getEntryBySlug("pricing", "index");
                   productKey={item.product_key}
                   label={item.buttons.buy_now.label}
                   fallbackUrl={item.buttons.buy_now.link}
-                  client:load
+                  client:visible
                 />
               </div>
             </div>
@@ -122,7 +122,7 @@ const pricing = await getEntryBySlug("pricing", "index");
   </section>
 
   <!-- Full Catalog CTA -->
-  <RegionalStoreLink client:load />
+  <RegionalStoreLink client:visible />
 
   <!-- FAQ Section -->
   {pricing.data.faq && pricing.data.faq.faq_list && pricing.data.faq.faq_list.length > 0 && (
