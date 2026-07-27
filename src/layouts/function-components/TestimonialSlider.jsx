@@ -41,7 +41,7 @@ const TestimonialSlider = ({ list }) => {
               <div className="review-author-avatar bg-gradient">
                 <img src={item.avatar} alt="" />
               </div>
-              <h4 className="mb-2">{item.author}</h4>
+              <h3 className="mb-2 text-lg font-bold">{item.author}</h3>
               <p className="mb-4 text-[#666]">{item.organization}</p>
               <p>{item.content}</p>
               <div

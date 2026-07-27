@@ -16,6 +16,9 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
+  build: {
+    inlineStylesheets: "auto",
+  },
   integrations: [
     react(),
     sitemap(),
