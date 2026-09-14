@@ -27,7 +27,7 @@
 
 | Periodo | Conversaciones por WhatsApp | Ventas | Cierre |
 |---|---|---|---|
-| 1 al 14 de septiembre de 2026 | 39 contactos (34 conversiones registradas en Google Ads) | 2 (una en línea, una por chat) | ≈ 5 % |
+| 1 al 14 de septiembre de 2026 | 39 contactos (34 conversiones registradas en Google Ads) | 4 (una en línea, una por chat y dos entregadas en persona por el esposo de Mildred) | ≈ 10 % |
 
 Mildred no alcanza a responder rápido y con método a todos. Muchos preguntan, reciben precio y desaparecen.
 
@@ -48,7 +48,7 @@ Mildred no alcanza a responder rápido y con método a todos. Muchos preguntan, 
 |---|---|---|---|
 | Tiempo de primera respuesta | Minutos u horas | Menos de 1 minuto, 24/7 | Menos de 1 minuto |
 | Conversaciones que llegan a "opciones de compra" | Sin medir | 60 % | 70 % |
-| Cierre (ventas ÷ conversaciones nuevas) | ≈ 5 % | 10 % | 20 % |
+| Cierre (ventas ÷ conversaciones nuevas) | ≈ 10 % | 15 % | 25 % |
 | Conversaciones con ciudad, necesidad y objeción registradas | Parcial | 100 % | 100 % |
 
 **Qué NO hace Angela:**
