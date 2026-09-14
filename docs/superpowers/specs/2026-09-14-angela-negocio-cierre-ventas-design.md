@@ -27,7 +27,7 @@
 
 | Periodo | Conversaciones por WhatsApp | Ventas | Cierre |
 |---|---|---|---|
-| 1 al 14 de septiembre de 2026 | 39 contactos (34 conversiones registradas en Google Ads) | 4 (una en línea, una por chat y dos entregadas en persona por el esposo de Mildred) | ≈ 10 % |
+| 1 al 14 de septiembre de 2026 | 39 contactos (34 conversiones registradas en Google Ads) | 4, todas cerradas por chat (dos las entregó en persona el esposo de Mildred) | ≈ 10 % |
 
 Mildred no alcanza a responder rápido y con método a todos. Muchos preguntan, reciben precio y desaparecen.
 
