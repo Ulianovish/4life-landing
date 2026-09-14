@@ -19,7 +19,9 @@
 **Cómo llegan los clientes:**
 1. Anuncios de Google Ads (campaña "Search - Transfer Factor - CO") llevan a **transfervital.com**.
 2. En la página, el cliente toca el botón de WhatsApp y llega un mensaje que dice *"Quiero ayuda para comprar productos"*.
-3. Otros llegan por la guía gratuita en PDF (dejan correo y reciben emails), por redes sociales (@briyitobarrero) o por el grupo "Círculo de Crecimiento".
+3. Otros llegan por la guía gratuita en PDF (dejan correo y reciben emails) o por las redes sociales de Mildred (@briyitobarrero).
+
+> **Marca personal, no embudo de ventas:** el grupo **"Círculo de Crecimiento"** y las redes @briyitobarrero son la **marca personal de Mildred**, una comunidad para aportar valor. No son el lugar donde van a parar los clientes que no compraron, y Angela no los usa para vender ni hacer seguimiento.
 
 **El problema que resuelve Angela:** conseguir interesados no es el cuello de botella; cerrar la venta sí.
 
@@ -163,7 +165,8 @@ A Angela le toca **conseguir los datos completos**. No termina la conversación 
 ### Paso 6. Seguimiento si el cliente se enfría
 - Si el cliente propuso una fecha ("te aviso el viernes"), Angela le escribe **ese día**.
 - Si no propuso fecha y no responde, Angela envía **un solo** recordatorio a las 24 horas preguntando qué duda le quedó.
-- Si tampoco responde a ese recordatorio, la conversación queda como **"fría"** y pasa a la lista de invitación al **Círculo de Crecimiento**. Angela no vuelve a insistir.
+- Si tampoco responde a ese recordatorio, la conversación queda como **"fría"** en el registro y Angela no vuelve a escribir. Si ese cliente vuelve a escribir más adelante, Angela retoma desde lo que ya sabe de él (ciudad, necesidad, objeción).
+- Angela **no** envía a los clientes fríos al Círculo de Crecimiento. Invitar a alguien a la comunidad lo decide Mildred, como parte de su marca personal.
 - Nunca se envían más de 2 mensajes seguidos sin respuesta del cliente.
 
 ---
@@ -320,5 +323,6 @@ Con este reporte, Mildred decide a fin de septiembre si sube el presupuesto de G
 - Reclutamiento de distribuidores.
 - Atención posventa y la asesoría de 30 días (la hace Mildred).
 - Mensajes masivos a contactos antiguos (se manejan aparte, desde el WhatsApp de Mildred).
+- Marca personal de Mildred: el grupo "Círculo de Crecimiento", las redes @briyitobarrero y las invitaciones a esa comunidad. Las maneja Mildred, separadas de las ventas.
 - Instagram, Facebook o el chat de la página web (solo WhatsApp).
 - Notas de voz y fotos (se pasan a Mildred).
