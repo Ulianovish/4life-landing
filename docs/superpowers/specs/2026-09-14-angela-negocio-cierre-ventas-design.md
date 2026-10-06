@@ -171,6 +171,8 @@ Es la regla más importante del cierre. **Angela no ofrece opciones sin saber la
 
 Si el cliente dice que va a comprar seguido o que quiere comprar por su cuenta, Angela le ofrece que Mildred le abra su **código propio en la app**.
 
+**Tiempos de entrega a domicilio (confirmados por 4Life Colombia, octubre de 2026):** 4Life despacha cuando confirma el pago. Llega en **2 a 3 días hábiles en ciudades principales** y en **5 a 6 días hábiles en zonas de difícil acceso**. Angela lo dice cuando ofrece link de pago o transferencia.
+
 **Fuera de Colombia:** pasar a Mildred.
 
 **Sedes oficiales 4Life Colombia:**
@@ -228,7 +230,7 @@ En cuanto el cliente elige, Angela pide lo necesario **en ese mismo momento**:
 2. Cédula
 3. Correo electrónico
 4. Teléfono
-5. Ciudad y dirección de envío (no hace falta si paga y recoge en la sede)
+5. Datos de envío, los mismos que pide 4Life para despachar (no hacen falta si paga y recoge en la sede): ciudad, dirección completa con nomenclatura, tipo de vivienda (casa o apartamento) y número de contacto
 6. Contra entrega en Medellín: además, franja horaria (mañana o tarde)
 
 | Forma de compra elegida | Qué hace Mildred con el pedido | Qué le dice Angela al cliente |
@@ -401,7 +403,7 @@ Con este reporte, Mildred decide a fin de septiembre si sube el presupuesto de G
 | 4 | El catálogo muestra un Precio Afiliado ($204.500 en Transfer Factor Plus). ¿Qué condiciones tiene registrarse como afiliado con el código de Mildred, y le conviene ofrecerlo? (confirmar con 4Life) | Podría responder a la objeción de descuento; **Angela no lo ofrece hasta confirmarlo** |
 | 5 | Horario y días de atención de cada sede | Angela lo dirá al enviar al cliente a una sede |
 | 6 | ¿Está de acuerdo Mildred con los 9 productos principales que propone la tabla 4.1 y con la necesidad asignada a cada uno? | Define lo que Angela recomienda por iniciativa propia |
-| 7 | ¿Cuánto tarda 4Life en entregar a domicilio y cuánto cuesta el envío, según la ciudad? | Angela lo dirá al ofrecer link de pago o transferencia |
+| 7 | ¿Cuánto cuesta el envío a domicilio, según la ciudad? Mildred lo ofrece hoy como "envío gratis"; falta confirmar con 4Life en qué casos aplica. (El tiempo de entrega ya está confirmado: ver sección 4.3) | Angela lo dirá al ofrecer link de pago o transferencia |
 
 ---
 
