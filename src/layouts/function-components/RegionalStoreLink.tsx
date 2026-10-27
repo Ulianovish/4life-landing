@@ -3,6 +3,7 @@ import {
   detectUserRegion,
   buildStoreUrl,
   getRegionConfig,
+  TEMP_STORE_OVERRIDE,
 } from "@/lib/utils/regionalStore";
 
 interface RegionalStoreLinkProps {
@@ -12,7 +13,9 @@ interface RegionalStoreLinkProps {
 const RegionalStoreLink: React.FC<RegionalStoreLinkProps> = ({
   className = "btn btn-primary",
 }) => {
-  const [storeUrl, setStoreUrl] = useState("https://colombia.4life.com/MildredBriyitBarrero/shop/all");
+  const [storeUrl, setStoreUrl] = useState(
+    TEMP_STORE_OVERRIDE ?? "https://colombia.4life.com/MildredBriyitBarrero/shop/all",
+  );
   const [regionName, setRegionName] = useState("");
 
   useEffect(() => {

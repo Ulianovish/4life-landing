@@ -3,6 +3,7 @@ import {
   detectUserRegion,
   buildProductUrl,
   getRegionConfig,
+  TEMP_STORE_OVERRIDE,
 } from "@/lib/utils/regionalStore";
 
 interface RegionalBuyButtonProps {
@@ -18,7 +19,9 @@ const RegionalBuyButton: React.FC<RegionalBuyButtonProps> = ({
   className = "btn-blue block h-[48px] w-full rounded-[50px]",
   fallbackUrl = "https://colombia.4life.com/MildredBriyitBarrero/shop/all",
 }) => {
-  const [productUrl, setProductUrl] = useState(fallbackUrl);
+  const [productUrl, setProductUrl] = useState(
+    TEMP_STORE_OVERRIDE ?? fallbackUrl,
+  );
   const [regionName, setRegionName] = useState("");
 
   useEffect(() => {

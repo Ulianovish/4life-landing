@@ -1,5 +1,9 @@
 import regionalConfig from "@/config/regional-stores.json";
 
+// Override temporal de campaña: manda todos los CTA de compra a un solo link,
+// saltándose el geo-routing por país. Poner null para volver a tienda regional.
+export const TEMP_STORE_OVERRIDE: string | null = "https://4l.shop/TRFAO";
+
 export interface RegionalStore {
   name: string;
   domain: string;
@@ -106,6 +110,8 @@ export function buildProductUrl(
   productKey: string,
   regionCode: string = "CO",
 ): string {
+  if (TEMP_STORE_OVERRIDE) return TEMP_STORE_OVERRIDE;
+
   const region = getRegionConfig(regionCode);
   const product = (regionalConfig.products as any)[productKey];
 
@@ -134,6 +140,8 @@ export function buildProductUrl(
  * Build full catalog store URL for specific region
  */
 export function buildStoreUrl(regionCode: string = "CO"): string {
+  if (TEMP_STORE_OVERRIDE) return TEMP_STORE_OVERRIDE;
+
   const region = getRegionConfig(regionCode);
 
   if (!region) {

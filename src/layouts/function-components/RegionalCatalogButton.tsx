@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { detectUserRegion, buildStoreUrl } from "@/lib/utils/regionalStore";
+import {
+  detectUserRegion,
+  buildStoreUrl,
+  TEMP_STORE_OVERRIDE,
+} from "@/lib/utils/regionalStore";
 
 interface RegionalCatalogButtonProps {
   label: string;
@@ -12,7 +16,7 @@ const RegionalCatalogButton: React.FC<RegionalCatalogButtonProps> = ({
   className = "btn-blue",
   fallbackUrl = "https://colombia.4life.com/MildredBriyitBarrero/shop/all",
 }) => {
-  const [storeUrl, setStoreUrl] = useState(fallbackUrl);
+  const [storeUrl, setStoreUrl] = useState(TEMP_STORE_OVERRIDE ?? fallbackUrl);
 
   useEffect(() => {
     setStoreUrl(buildStoreUrl(detectUserRegion()));
